@@ -1,0 +1,37 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<QuickView
+		id="quickView"
+		pages="{
+			path: '/Products',
+			templateShareable: true
+			}"
+		navigate=".onNavigate">
+		<QuickViewPage
+			pageId="{ProductName}"
+			header="{ProductName}"
+			title="{QuantityPerUnit}"
+			titleUrl="{UnitPrice}"
+			description="{UnitsInStock}"
+			groups="{
+				path: 'groups',
+				templateShareable: true
+			}">
+			<avatar>
+				<Avatar
+					src="{icon}"
+					displayShape="{displayShape}"
+				/>
+			</avatar>
+			<QuickViewGroup heading="{ProductName}" elements="{ path: 'elements', templateShareable: true }">
+				<QuickViewGroupElement
+					label="{ProductID}"
+					value="{ProductName}"
+					url="{SupplierID}"
+					type="{CategoryID}"
+					pageLinkId="{QuantityPerUnit}"
+					emailSubject="{UnitPrice}"
+					target="{UnitsInStock}" />
+			</QuickViewGroup>
+		</QuickViewPage>
+	</QuickView>
+</core:FragmentDefinition>

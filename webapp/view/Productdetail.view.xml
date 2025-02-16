@@ -1,0 +1,95 @@
+<mvc:View id="Productdetailid"
+           xmlns:mvc="sap.ui.core.mvc"
+		   xmlns="sap.uxap"
+		   xmlns:layout="sap.ui.layout"
+		   xmlns:m="sap.m"
+		  
+		   controllerName="com.tushar.project2.controller.Productdetail"
+		   height="100%" >
+	<ObjectPageLayout id="ObjectPageLayout"
+		enableLazyLoading="true"
+		beforeNavigate="onBeforeNavigate"
+		useIconTabBar="true"
+		showTitleInHeaderContent="true"
+		upperCaseAnchorBar="false"
+		sectionChange= "onObjectMatched1"
+		>
+		<headerTitle>
+			<ObjectPageDynamicHeaderTitle>
+				<expandedHeading>
+					<m:Title text="page 2 - {S>/ProductName}" wrapping="true"/>
+				</expandedHeading>
+
+				<snappedHeading>
+					<m:FlexBox fitContainer="true" alignItems="Center">
+						
+						<m:Title text="{S>/ProductName}" wrapping="true" />
+					</m:FlexBox>
+				</snappedHeading>
+
+				
+
+				
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+
+		<headerContent>
+			<m:FlexBox wrap="Wrap" fitContainer="true" >
+				<m:Avatar class="sapUiSmallMarginEnd" src="./test-resources/sap/uxap/images/imageID_275314.png" displaySize="L" />
+
+				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+					<m:Link text="PRODUCTID:{S>/ProductID}"/>
+					<m:Link text="SUPPLIERID:{S>/SupplierID}"/>
+					<m:Link text="CATEGORYID:{S>/CategoryID}"/>
+					<m:Button
+							id="employeeQuickView"
+							text="Product QuickView"
+							width="200px"
+							press="handleProductQuickViewPress"
+							class="sapUiSmallMarginBottom"
+							ariaHasPopup="Dialog" />
+
+				</layout:VerticalLayout>
+
+				<layout:HorizontalLayout class="sapUiSmallMarginBeginEnd">
+					
+			    </layout:HorizontalLayout>
+
+				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+					<m:Label text="QUANTITY PER UNIT:{S>/QuantityPerUnit}"/>
+					<m:Label text="UNIT PRICE:{S>/UnitPrice}$"/>
+					<m:VBox>
+						<m:Label text="UNITS IN STOCK"/>
+						<m:ProgressIndicator percentValue="{S>/UnitsInStock}" displayValue="{S>/UnitsInStock}%"/>
+					</m:VBox>
+				</layout:VerticalLayout>
+
+				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+					<m:Label text="UNITS ON ORDER:{S>/UnitsOnOrder}"/>
+					<m:Label text="REORDER LEVEL:{S>/ReorderLevel}"/>
+					<m:Label text="DISCOUNTED:{S>/Discontinued}"/>
+				</layout:VerticalLayout>
+			</m:FlexBox>
+		</headerContent>
+
+		<sections>
+			
+
+			<ObjectPageSection titleUppercase="false" id="SUPPLIERDETAIL" title="SUPPLIER DETAIL">
+				<subSections>
+					<ObjectPageSubSection id="personalSS1" title="{M>Supplier/CompanyName}" titleUppercase="false">
+						<blocks>
+						<m:Label text="SUPPLIER ID:{M>/SupplierID}"/>
+						<m:Label text="CONTACT NAME:{M>/ContactName}"/>
+						<m:Label text="CONTACT TITLE:{M>/ContactTitle}"/>
+						<m:Label text="CITY:{M>/City}"/>
+							
+						</blocks>
+					</ObjectPageSubSection>
+
+					
+				</subSections>
+			</ObjectPageSection>
+			</sections>
+	</ObjectPageLayout>
+</mvc:View>

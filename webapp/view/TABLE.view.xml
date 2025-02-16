@@ -1,0 +1,127 @@
+<mvc:View
+		controllerName="com.tushar.project2.controller.TABLE"
+		height="100%"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m"
+		xmlns:f="sap.f"
+		xmlns:fb="sap.ui.comp.filterbar"
+		xmlns:svm="sap.ui.comp.smartvariants">
+		<f:DynamicPage headerExpanded="{/headerExpanded}">
+			<f:title>
+				<f:DynamicPageTitle>
+					<f:heading>
+						<svm:SmartVariantManagement id="svm" showExecuteOnSelection="true" />
+					</f:heading>
+					<f:expandedContent>
+						<Label id="expandedLabel" text="No filters active" />
+					</f:expandedContent>
+					<f:snappedContent>
+						<Label id="snappedLabel" text="No filters active" />
+					</f:snappedContent>
+				</f:DynamicPageTitle>
+			</f:title>
+			<f:header>
+			
+				
+				<f:DynamicPageHeader>
+					<f:content>
+						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearchSimple">
+							<fb:filterGroupItems>
+								<fb:FilterGroupItem name="Name" label="Name" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="Product"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/Products',
+												templateShareable: true
+											}"
+										>
+											<core:Item key="{ProductID}" text="{ProductName}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="Category" label="Category" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="Category"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/Products',
+												templateShareable: true
+											}"
+										>
+											<core:Item key="{CategoryID}" text="{CategoryID}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="SupplierName" label="SupplierName" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="SupplierName"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/Products',
+												templateShareable: true
+											}"
+										>
+											<core:Item key="{SupplierID}" text="{SupplierID}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="UnitsInStock" label="UnitsInStock" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="UnitsInStock"
+											selectionChange=".onSelectionChange">
+											<core:Item key="GRATER THAN 10" text="GRATER THAN 10"/>
+											<core:Item key="LESS THAN 10" text="LESS THAN 10"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+							</fb:filterGroupItems>
+						</fb:FilterBar>
+					</f:content>
+				</f:DynamicPageHeader>
+				
+			</f:header>
+			<f:content>
+				<Table
+					id="table"
+					
+					inset="false"
+					
+					items="{
+						path: '/Products'
+					}"
+				>
+					<columns>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Name"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Category"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="SupplierName"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="UnitsInStock"/>
+						</Column>
+					</columns>
+
+					<items >
+						<ColumnListItem vAlign="Middle"  type="Active"  press="OnPress">
+							<cells>
+								<ObjectIdentifier title="{ProductName}" text="{ProductID}" />
+								<Text text="{CategoryID}" />
+								<Text text="{SupplierID}" />
+								<Text text="{UnitsInStock}" />
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</f:content>
+		</f:DynamicPage>
+</mvc:View>
