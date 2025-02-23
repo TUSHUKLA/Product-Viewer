@@ -7,7 +7,7 @@
 			}"
 		navigate=".onNavigate">
 		<QuickViewPage
-			pageId="{ProductName}"
+			pageId="{ProductID}"
 			header="{ProductName}"
 			title="{QuantityPerUnit}"
 			titleUrl="{UnitPrice}"

@@ -3,6 +3,7 @@
 		   xmlns="sap.uxap"
 		   xmlns:layout="sap.ui.layout"
 		   xmlns:m="sap.m"
+		   xmlns:f="sap.ui.layout.form"
 		  
 		   controllerName="com.tushar.project2.controller.Productdetail"
 		   height="100%" >
@@ -48,6 +49,9 @@
 							press="handleProductQuickViewPress"
 							class="sapUiSmallMarginBottom"
 							ariaHasPopup="Dialog" />
+	
+					
+
 
 				</layout:VerticalLayout>
 
